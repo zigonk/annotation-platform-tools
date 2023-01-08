@@ -1,0 +1,5 @@
+DATA_DIR = './vocal'
+IMAGE_DIR = f'{DATA_DIR}/images'
+MASK_DIR = f'{DATA_DIR}/masks'
+ANNO_DIR = '/mnt/d/UserData/Downloads/medical_data'
+VISUALIZE_DIR = './visualize'
