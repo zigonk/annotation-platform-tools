@@ -33,16 +33,14 @@ def fillMaskWithBoundary(im):
     try:
         im = np.asarray(im, dtype='uint8')[:,:,0]
         ret, thresh = cv2.threshold(im, 128, 255, 0)
-        filled = np.zeros_like(im)
-        contours, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
-        # contours = contours[0] if len(contours) != 1 else contours
+        contours, _ = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
         contour = selectLongestContour(contours)
-        assert len(contour) > 10
+        # Filter noisy mask
+        assert len(contour) > 4
         bbox = cv2.boundingRect(contour)
         
+        filled = np.zeros_like(im)
         cv2.drawContours(filled, [contour], 0, 255, -1)
         return filled, bbox, contour.tolist()
     except:
-        print(len(contours))
-        print(len(contour))
-        print(contours)
+        pass
