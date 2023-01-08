@@ -1,2 +1,2 @@
 # Toolkit for annotation platform
-This repo provides tools for convert annotation of the platform to popular format
+This repo provides tools for converting annotation of the platform to popular formats
