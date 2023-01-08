@@ -1,7 +1,5 @@
 from io import BytesIO
 import json
-import cv2
-import numpy as np
 import os
 import requests
 from tqdm import tqdm
